@@ -1590,7 +1590,7 @@
                                     <td class="w-30">
                                         <div>
                                             @if ($data1->Other1_Department_person)
-                                                {{ $data1->Other1_Department_person }}
+                                            {{ DB::table('c_f_t_departments')->where('id', $data1->Other1_Department_person)->value('name') }}
                                             @else
                                                 Not Applicable
                                             @endif
@@ -1673,7 +1673,7 @@
                                     <td class="w-30">
                                         <div>
                                             @if ($data1->Other2_Department_person)
-                                                {{ $data1->Other2_Department_person }}
+                                            {{ DB::table('c_f_t_departments')->where('id', $data1->Other2_Department_person)->value('name') }}
                                             @else
                                                 Not Applicable
                                             @endif
@@ -1756,7 +1756,7 @@
                                     <td class="w-30">
                                         <div>
                                             @if ($data1->Other3_Department_person)
-                                                {{ $data1->Other3_Department_person }}
+                                            {{ DB::table('c_f_t_departments')->where('id', $data1->Other3_Department_person)->value('name') }}
                                             @else
                                                 Not Applicable
                                             @endif
@@ -1839,7 +1839,7 @@
                                     <td class="w-30">
                                         <div>
                                             @if ($data1->Other4_Department_person)
-                                                {{ $data1->Other4_Department_person }}
+                                            {{ DB::table('c_f_t_departments')->where('id', $data1->Other4_Department_person)->value('name') }}
                                             @else
                                                 Not Applicable
                                             @endif
@@ -1922,7 +1922,7 @@
                                     <td class="w-30">
                                         <div>
                                             @if ($data1->Other5_Department_person)
-                                                {{ $data1->Other5_Department_person }}
+                                            {{ DB::table('c_f_t_departments')->where('id', $data1->Other5_Department_person)->value('name') }}
                                             @else
                                                 Not Applicable
                                             @endif
