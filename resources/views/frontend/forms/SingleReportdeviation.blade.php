@@ -204,15 +204,15 @@
                         <th class="w-20">Date of Initiation</th>
                         {{-- <td class="w-30">@if{{ Helpers::getdateFormat($data->intiation_date) }} @else Not Applicable @endif</td> --}}
                         {{-- <td class="w-30">@if (Helpers::getdateFormat($data->intiation_date)) {{ Helpers::getdateFormat($data->intiation_date) }} @else Not Applicable @endif</td> --}}
-                        <td class="w-30">{{ $data->created_at ? $data->created_at->format('d-M-Y') : '' }} </td>
+                        <td class="w-30">{{ $data->created_at ? $data->created_at->format('d-m-Y') : '' }} </td>
 
                         <th class="w-20">Due Date</th>
                         <td class="w-30">
                             @if ($data->due_date)
-                                {{ $data->due_date }}
-                            @else
-                                Not Applicable
-                            @endif
+                            {{ \Carbon\Carbon::parse($data->due_date)->format('d-m-Y') }}
+                        @else
+                            Not Applicable
+                        @endif
                         </td>
                     </tr>
                     <tr>
@@ -1968,6 +1968,33 @@
                                     </td>
                                 </tr>
                             </table>
+
+                            <div class="border-table">
+                                <div class="block-head">
+                                    CFT Attachments
+                                </div>
+                                <table>
+                                    <tr class="table_bg">
+                                        <th class="w-20">S.N.</th>
+                                        <th class="w-60">Attachment</th>
+                                    </tr>
+                                    @if ($data1->QA_attachments)
+                                        @foreach (json_decode($data1->QA_attachments) as $key => $file)
+                                            <tr>
+                                                <td class="w-20">{{ $key + 1 }}</td>
+                                                <td class="w-20"><a href="{{ asset('upload/' . $file) }}"
+                                                        target="_blank"><b>{{ $file }}</b></a> </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td class="w-20">1</td>
+                                            <td class="w-20">Not Applicable</td>
+                                        </tr>
+                                    @endif
+                
+                                </table>
+                            </div>
                         </div>
                       
                     </div>
